@@ -2,7 +2,6 @@ var Hapi = require('hapi');
 var moment = require('moment');
 var Vision = require('vision');
 var inert = require('inert');
-var HapiReactViews = require('hapi-react-views');
 var server = new Hapi.Server();
 
 server.register(Vision, function (err) {
@@ -37,7 +36,7 @@ server.route({
 
 server.route({
   method: 'GET',
-  path: '/{date}/{hourmin}/{title}',
+  path: '/{date}/{hourmin?}',
   handler: function (request, reply) {
     var d, now = moment();
     if(request.params.hourmin) {
@@ -46,7 +45,7 @@ server.route({
     } else {
       var d = moment(request.params.date);
     }
-    var title = request.params.title || d.format("dddd, MMMM Do YYYY, h:mm:ss a")
+    var title = request.query.title || d.format("dddd, MMMM Do YYYY, HH:mm:ss")
     reply.view('countdown', { countdown: d.valueOf(), title: title});
   }
 })

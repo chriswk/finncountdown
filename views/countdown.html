@@ -30,7 +30,7 @@
     $('[data-toggle="tooltip"]').tooltip();
     var d = new Date({{countdown}});
     $("div#clock").countdown(d, function (event) {
-      $(this).html(event.strftime("%-D day%!D and %H:%M:%S left"));
+      $(this).html(event.strftime("%-m month%!m %-n day%!n and %-H:%M:%S left"));
     });
   });
   </script>
