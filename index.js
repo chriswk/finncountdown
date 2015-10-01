@@ -18,8 +18,8 @@ server.register(Vision, function (err) {
     path: 'views'
   });
 })
-
-server.connection({ port: 3000});
+var port = process.env.PORT || 3000;
+server.connection({ port: port});
 server.register(inert, function (err) {
   server.route({
     method: 'GET',
