@@ -1,0 +1,26 @@
+{
+  "name": "countdown",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "chrkolst <christopher.kolstad@finn.no>"
+  ],
+  "description": "Countodwn",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.countdown": "~2.1.0",
+    "moment": "~2.10.6"
+  }
+}

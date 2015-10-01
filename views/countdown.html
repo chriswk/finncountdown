@@ -1,0 +1,38 @@
+
+<html>
+  <head>
+    <title>Countdown to {{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     body {
+       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+     }
+   </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Countdown to {{title}}</h1>
+      <div class="panel panel-default" data-toggle="tooltip" data-placement="top" title data-original-title="Excitement mounts">
+        <div class="panel-body">
+          <div class="lead" id="clock"></div>
+        </div>
+      </div>
+    </div>
+  <script src="/components/jquery/dist/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/components/jquery.countdown/dist/jquery.countdown.min.js"></script>
+  <script lang="javascript">
+  jQuery(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    var d = new Date({{countdown}});
+    $("div#clock").countdown(d, function (event) {
+      $(this).html(event.strftime("%-D day%!D and %H:%M:%S left"));
+    });
+  });
+  </script>
+  </body>
+</html>
