@@ -24,7 +24,12 @@ server.register(inert, function (err) {
     method: 'GET',
     path: '/components/{path*}', handler: { directory: { path: './bower_components'}}
   });
+  server.route({
+    method: 'GET',
+    path: '/css/{path*}', handler: { directory: { path: './css'}}
+  });
 });
+
 
 server.route({
   method: 'GET',

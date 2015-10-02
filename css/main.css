@@ -1,5 +1,26 @@
+@media screen and (max-width: 48em) {
+  .main-example {
+    width: 100%;
+  }
+  .main-example .countdown-container {
+    height: 100px;
+  }
+  .main-example .time {
+      height: 70px;
+      width: 48px;
+  }
+  .main-example .count {
+    font-size: 1.5em;
+    line-height: 70px;
+  }
+  .main-example .label {
+    font-size: 0.8em;
+    top: 72px;
+  }
+}
+
 .countdown-container {
-  height: 130px;
+  height: 180px;
 }
 
 .time {
@@ -95,7 +116,15 @@
   -o-transform-origin: 50% 0;
   transform-origin: 50% 0;
 }
-
+.label {
+  font-size: large !important;
+  color: black;
+  margin-top: 5px;
+  display: block;
+  position: absolute;
+  top: 95px;
+  width: 100%;
+}
 .count.curr.top {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -104,7 +133,8 @@
   transform: rotateX(0deg);
   z-index: 3;
 }
-
+.count.next {
+}
 .count.next.bottom {
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
