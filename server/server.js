@@ -15,7 +15,7 @@ module.exports = {
         engines: {
           html: require('handlebars')
         },
-        relativeTo: __dirname,
+        relativeTo: global.appRoot,
         path: 'views'
       });
     })
@@ -23,11 +23,11 @@ module.exports = {
     server.register(inert, function (err) {
       server.route({
         method: 'GET',
-        path: '/components/{path*}', handler: { directory: { path: './bower_components'}}
+        path: '/components/{path*}', handler: { directory: { path: global.appRoot + '/bower_components'}}
       });
       server.route({
         method: 'GET',
-        path: '/css/{path*}', handler: { directory: { path: './css'}}
+        path: '/css/{path*}', handler: { directory: { path: global.appRoot + '/css'}}
       });
     });
 
@@ -54,7 +54,8 @@ module.exports = {
         var title = request.query.title || d.format("dddd, MMMM Do YYYY, HH:mm:ss")
         reply.view('countdown', { countdown: d.valueOf(), title: title});
       }
-    })
+    });
+
     server.start(function () {
       console.log('Server running at:', server.info.uri);
     });
