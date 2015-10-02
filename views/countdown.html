@@ -15,24 +15,62 @@
   </head>
   <body>
     <div class="container">
-      <h1>Countdown to {{title}}</h1>
-      <div class="panel panel-default" data-toggle="tooltip" data-placement="top" title data-original-title="Excitement mounts">
-        <div class="panel-body">
-          <div class="lead" id="clock"></div>
+      <h1>{{title}}</h1>
+      <div class="countdown-container">
+        <div class="time weeks flip">
+          <span class="count curr top"></span>
+          <span class="count next top"></span>
+          <span class="count next bottom"></span>
+          <span class="count curr bottom"></span>
+          <span class="label">weeks</span>
+        </div>
+        <div class="time days flip">
+          <span class="count curr top"></span>
+          <span class="count next top"></span>
+          <span class="count next bottom"></span>
+          <span class="count curr bottom"></span>
+          <span class="label">days</span>
+        </div>
+        <div class="time hours flip">
+          <span class="count curr top"></span>
+          <span class="count next top"></span>
+          <span class="count next bottom"></span>
+          <span class="count curr bottom"></span>
+          <span class="label">hours</span>
+        </div>
+        <div class="time minutes flip">
+          <span class="count curr top"></span>
+          <span class="count next top"></span>
+          <span class="count next bottom"></span>
+          <span class="count curr bottom"></span>
+          <span class="label">minutes</span>
+        </div>
+        <div class="time seconds flip">
+          <span class="count curr top"></span>
+          <span class="count next top"></span>
+          <span class="count next bottom"></span>
+          <span class="count curr bottom"></span>
+          <span class="label">seconds</span>
         </div>
       </div>
     </div>
   <script src="/components/jquery/dist/jquery.min.js"></script>
+  <script src="/components/lodash/lodash.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="/components/jquery.countdown/dist/jquery.countdown.min.js"></script>
   <script lang="javascript">
-  jQuery(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-    var d = new Date({{countdown}});
-    $("div#clock").countdown(d, function (event) {
-      $(this).html(event.strftime("%-m month%!m %-n day%!n and %-H:%M:%S left"));
+    $(window).on('load', function () {
+      var labels = ['weeks', 'days', ]
     });
-  });
   </script>
+  <script type="text/template" id="main-example-template">
+<div class="time <%= label %>">
+  <span class="count curr top"><%= curr %></span>
+  <span class="count next top"><%= next %></span>
+  <span class="count next bottom"><%= next %></span>
+  <span class="count curr bottom"><%= curr %></span>
+  <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+</div>
+</script>
   </body>
 </html>
