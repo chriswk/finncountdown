@@ -29,8 +29,8 @@
   display: inline-block;
   text-align: center;
   position: relative;
-  height: 95px;
-  width: 65px;
+  height: 290px;
+  width: 150px;
 
   -webkit-perspective: 500px;
   -moz-perspective: 500px;
@@ -62,7 +62,7 @@
   color: #f8f8f8;
   display: block;
   font-family: 'Oswald', sans-serif;
-  font-size: 2em;
+  font-size: 8.7em;
   line-height: 2.4em;
   overflow: hidden;
   position: absolute;
@@ -122,7 +122,7 @@
   margin-top: 5px;
   display: block;
   position: absolute;
-  top: 95px;
+  top: 300px;
   width: 100%;
 }
 .count.curr.top {
